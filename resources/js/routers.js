@@ -1,14 +1,14 @@
 
 // Define route components.
 // These can be imported from other files
-import Vuetify from  "../js/plugins/vuetify";
+//import Vuetify from  "../js/plugins/vuetify";
 import VueRouter from 'vue-router';
 
 //import Bookables from "./components/Bookables/Bookables";
 //import Basket from "./components/basket/Basket";
 
-import About from "./components/views/About";
-import Home from "./components/views/Home";
+//import About from "./components/views/About";
+//import Home from "./components/views/Home";
 
 
 //import Admin from "./components/auth/Admin";
@@ -21,10 +21,10 @@ const routes = [
   { path: '/basket', component: Basket, name: "basket"},
   //{ path: '/admin', component: Admin, name: "admin"},
 */
-    { path: '/auth/login/:pageId', component: require("./components/auth/Login").default, name: "login"},
-    { path: '/auth/login/:pageId', component: require("./components/auth/Login").default, name: "register"},
-    { path: '/home', component: Home, name: "home"},
-    { path: '/about', component: About, name: "about"},
+    //{ path: '/auth/login/:pageId', component: require("./components/auth/Login").default, name: "login"},
+    //{ path: '/auth/login/:pageId', component: require("./components/auth/Login").default, name: "register"},
+    //{ path: '/home', component: Home, name: "home"},
+    //{ path: '/about', component: About, name: "about"},
 ];
 
 // Create the router instance and pass the `routes` option
