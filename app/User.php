@@ -2,13 +2,14 @@
 
 namespace App;
 
+use App\Traits\HasRolesAndPermissions;  //2020-10-03 add, for roles/permissions
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasRolesAndPermissions; //2020-10-03 add, new trait
 
     /**
      * The attributes that are mass assignable.
