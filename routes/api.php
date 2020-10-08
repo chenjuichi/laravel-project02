@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//2020-10-06 cut the following into web.php, for sanctum
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});

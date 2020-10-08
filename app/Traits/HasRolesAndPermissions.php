@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\User;
 use App\Role;
 use App\Permission;
 
@@ -40,17 +41,17 @@ trait HasRolesAndPermissions
      * @param $permission
      * @return bool
      */
-    protected function hasPermission($permission)
-    {
-        return (bool) $this->permissions->where('slug', $permission->slug)->count();
+    //protected function hasPermission($permission) {
+    public function hasPermission($permission) {
+            //return (bool) $this->permissions->where('slug', $permission->slug)->count();
+            return (bool) $this->permissions->where('slug', $permission)->count();
     }
 
     /**
      * @param $permission
      * @return bool
      */
-    protected function hasPermissionTo($permission)
-    {
+    protected function hasPermissionTo($permission) {
         //return $this->hasPermission($permission);
         return $this->hasPermissionThroughRole($permission) || $this->hasPermission($permission);
     }
@@ -73,7 +74,8 @@ trait HasRolesAndPermissions
      * @param array $permissions
      * @return mixed
      */
-    protected function getAllPermissions(array $permissions)
+    //protected function getAllPermissions(array $permissions)
+    public function getAllPermissions(array $permissions)
     {
         return Permission::whereIn('slug',$permissions)->get();
     }

@@ -6,6 +6,8 @@
 
 require('./bootstrap');
 //===
+//import '@mdi/font/css/materialdesignicons.css'
+
 import Vuetify from  "vuetify";
 import Vuex from "vuex";
 import VueRouter from "vue-router";
@@ -13,6 +15,8 @@ import VueRouter from "vue-router";
 import router from "./routers";
 import ValidationErrors from "./shared/components/ValidationErrors";
 import storeDefinition from "./store";
+
+import Welcome from "./Welcome";
 //===
 
 window.Vue = require('vue');
@@ -49,13 +53,19 @@ const store = new Vuex.Store(storeDefinition);
  */
 
 const app = new Vue({
-    vuetify: new Vuetify(),
+    vuetify: new Vuetify(
+        {
+            icons: {
+                iconfont: 'mdi' || 'md' || 'fa'
+            }
+        }
+    ),
     el: '#app',
     router,
     store,
 
     components: {   //local registration
-    	//'index': Index,
+    	'welcome': Welcome,
   	},
 
     async beforeCreate() {

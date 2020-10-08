@@ -1911,6 +1911,380 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Welcome.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Welcome.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _shared_mixins_validationErrors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./shared/mixins/validationErrors */ "./resources/js/shared/mixins/validationErrors.js");
+/* harmony import */ var _utils_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/auth */ "./resources/js/utils/auth.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {},
+  props: {},
+  computed: {
+    passwordConfirmationRule: function passwordConfirmationRule() {
+      var _this = this;
+
+      return function () {
+        return _this.registerUser.password === _this.registerUser.confirmPassword || 'Password must match';
+      };
+    }
+  },
+  data: function data() {
+    return {
+      step: 1,
+      loading: false,
+      emailColor: 'black',
+      passwordColor: 'black',
+      emailErrMsg: '',
+      passwordErrMsg: '',
+      loginEmail: null,
+      loginPassword: null,
+      registerUser: {
+        name: null,
+        email: null,
+        password: null,
+        confirmPassword: null
+      },
+      valid: true,
+      eyeShow: true,
+      eyeShow1: true,
+      eyeShow2: true
+      /*
+                  rules: {
+                      required: value => !!value || "Required.",
+                      password: value => {
+                          const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+                          return (
+                              pattern.test(value) ||
+                              "Min. 8 characters with at least one capital letter, a number and a special character."
+                          );
+                      }
+                  }
+      */
+
+    };
+  },
+  watch: {
+    'registerUser.email': function registerUserEmail() {
+      //Regular expression Testing
+      var isEmailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/; //let isEmailRule = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+      this.emailErrMsg = '';
+      var result = this.loginEmail.search(isEmailRule);
+
+      if (result != -1) {
+        this.emailErrMsg = '';
+        this.emailColor = 'black';
+      } else {
+        this.emailErrMsg = 'Please provide a valid email!';
+        this.emailColor = 'red';
+      }
+
+      $('#idMarkForEmail').text(this.emailErrMsg);
+    },
+    //end 'email': function()
+    'registerUser.password': function registerUserPassword() {
+      //Regular expression Testing
+
+      /* Here is an explanation:
+      /^
+                   (?=.*\d)            // should contain at least one digit
+                   (?=.*[0-9])
+          (?=.*[a-z])         // should contain at least one lower case
+                   (?=.*[A-Z])         // should contain at least one upper case
+                   (?=.*[!@#\$%\^&\*]) // should contain at least one special character
+                   (?=.{8,})
+        (?=.*[a-zA-Z0-9]{8,30} // should contain 8 ~ 30 from the mentioned characters
+      $/
+      */
+      var isPasswordRule = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,30}$/;
+      this.passwordErrMsg = '';
+      var result = this.loginPassword.search(isPasswordRule);
+      console.log("password regular: ", result);
+
+      if (result != -1) {
+        this.passwordErrMsg = '';
+        this.passwordColor = 'black';
+      } else {
+        this.passwordErrMsg = 'Please provide a valid password!';
+        this.passwordColor = 'red';
+      }
+
+      $('#idMarkForPassword').text(this.passwordErrMsg);
+    } //end 'loginPassword': function()
+
+  },
+  methods: {
+    signin: function signin() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var key;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this2.loading = true;
+                _this2.errors = null;
+                _context.prev = 2;
+                _context.next = 5;
+                return axios.get('sanctum/csrf-cookie');
+
+              case 5:
+                _context.next = 7;
+                return axios.post("/login", {
+                  email: _this2.loginEmail,
+                  password: _this2.loginPassword
+                });
+
+              case 7:
+                Object(_utils_auth__WEBPACK_IMPORTED_MODULE_2__["logIn"])();
+
+                _this2.$store.dispatch('loadUser'); //this.$router.push({name: "home"});
+
+
+                _context.next = 16;
+                break;
+
+              case 11:
+                _context.prev = 11;
+                _context.t0 = _context["catch"](2);
+                _this2.errors = _context.t0.response && _context.t0.response.data.errors;
+                key = Object.keys(_context.t0.response.data.errors)[0];
+                _this2.errorMessage = _context.t0.response.data.errors[key][0];
+
+              case 16:
+                _this2.loading = false;
+
+              case 17:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[2, 11]]);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -6398,6 +6772,25 @@ __webpack_require__.r(__webpack_exports__);
 
 })));
 //# sourceMappingURL=bootstrap.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Welcome.vue?vue&type=style&index=0&id=3bea4f98&scoped=true&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Welcome.vue?vue&type=style&index=0&id=3bea4f98&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n#signinup-form[data-v-3bea4f98] {\n  max-width: 75rem;\n}\n.card[data-v-3bea4f98] {\n  overflow: hidden;\n}\n.vcenter[data-v-3bea4f98] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n", ""]);
+
+// exports
 
 
 /***/ }),
@@ -38339,6 +38732,36 @@ try {
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Welcome.vue?vue&type=style&index=0&id=3bea4f98&scoped=true&lang=css&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Welcome.vue?vue&type=style&index=0&id=3bea4f98&scoped=true&lang=css& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader??ref--6-1!../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/postcss-loader/src??ref--6-2!../../node_modules/vue-loader/lib??vue-loader-options!./Welcome.vue?vue&type=style&index=0&id=3bea4f98&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Welcome.vue?vue&type=style&index=0&id=3bea4f98&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/shared/components/ValidationErrors.vue?vue&type=style&index=0&id=4356abde&scoped=true&lang=css&":
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/shared/components/ValidationErrors.vue?vue&type=style&index=0&id=4356abde&scoped=true&lang=css& ***!
@@ -38950,6 +39373,777 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (this && this.clearImmediate);
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Welcome.vue?vue&type=template&id=3bea4f98&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Welcome.vue?vue&type=template&id=3bea4f98&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-app",
+    [
+      _c(
+        "v-main",
+        [
+          _c(
+            "v-container",
+            {
+              staticClass: "fill-height",
+              attrs: { id: "signinup-form", fluid: "" }
+            },
+            [
+              _c(
+                "v-row",
+                { attrs: { align: "center", justify: "center" } },
+                [
+                  _c(
+                    "v-col",
+                    { staticClass: "col-12 col-sm-8 col-md-8 col-lg-8" },
+                    [
+                      _c(
+                        "v-card",
+                        { staticClass: "evelation-12 card" },
+                        [
+                          _c(
+                            "v-window",
+                            {
+                              model: {
+                                value: _vm.step,
+                                callback: function($$v) {
+                                  _vm.step = $$v
+                                },
+                                expression: "step"
+                              }
+                            },
+                            [
+                              _c(
+                                "v-window-item",
+                                { attrs: { value: 1 } },
+                                [
+                                  _c(
+                                    "v-row",
+                                    [
+                                      _c(
+                                        "v-col",
+                                        {
+                                          staticClass:
+                                            "col-12 col-md-8 col-lg-8 pt-6 pb-6"
+                                        },
+                                        [
+                                          _c(
+                                            "v-card-text",
+                                            { staticClass: "mt-12" },
+                                            [
+                                              _c(
+                                                "h1",
+                                                {
+                                                  staticClass:
+                                                    "text-center display-2 mb-10"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                            Sign in\n                                        "
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "text-center mt-4"
+                                                },
+                                                [
+                                                  _c(
+                                                    "v-btn",
+                                                    {
+                                                      staticClass: "mx-2",
+                                                      attrs: {
+                                                        fab: "",
+                                                        color: "black",
+                                                        outlined: ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v(
+                                                          "fab fa-facebook"
+                                                        )
+                                                      ])
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-btn",
+                                                    {
+                                                      staticClass: "mx-2",
+                                                      attrs: {
+                                                        fab: "",
+                                                        color: "black",
+                                                        outlined: ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v(
+                                                          "fab fa-google-plus"
+                                                        )
+                                                      ])
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-btn",
+                                                    {
+                                                      staticClass: "mx-2",
+                                                      attrs: {
+                                                        fab: "",
+                                                        color: "black",
+                                                        outlined: ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v(
+                                                          "fab fa-linkedin"
+                                                        )
+                                                      ])
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "h4",
+                                                {
+                                                  staticClass:
+                                                    "text-center mt-4 ml-4"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                            Enter your email for registration\n                                        "
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-form",
+                                                [
+                                                  _c("v-text-field", {
+                                                    attrs: {
+                                                      id: "loginEmail",
+                                                      label: "Email",
+                                                      name: "Email",
+                                                      "prepend-icon":
+                                                        "mdi-email",
+                                                      type: "email",
+                                                      color: "teal accent-3"
+                                                    },
+                                                    model: {
+                                                      value: _vm.loginEmail,
+                                                      callback: function($$v) {
+                                                        _vm.loginEmail = $$v
+                                                      },
+                                                      expression: "loginEmail"
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("v-text-field", {
+                                                    attrs: {
+                                                      id: "loginPassword",
+                                                      label: "Password",
+                                                      name: "Password",
+                                                      color: "teal accent-3",
+                                                      "prepend-icon":
+                                                        "mdi-lock",
+                                                      "append-icon": _vm.eyeShow
+                                                        ? "mdi-eye"
+                                                        : "mdi-eye-off",
+                                                      type: _vm.eyeShow
+                                                        ? "password"
+                                                        : "text"
+                                                    },
+                                                    on: {
+                                                      "click:append": function() {
+                                                        return (_vm.eyeShow = !_vm.eyeShow)
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value: _vm.loginPassword,
+                                                      callback: function($$v) {
+                                                        _vm.loginPassword = $$v
+                                                      },
+                                                      expression:
+                                                        "loginPassword"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "h3",
+                                                {
+                                                  staticClass:
+                                                    "text-center mt-3"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                            Forget your email?\n                                        "
+                                                  )
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "text-center mt-3" },
+                                            [
+                                              _c(
+                                                "v-btn",
+                                                {
+                                                  attrs: {
+                                                    rounded: "",
+                                                    color: "teal accent-3",
+                                                    dark: ""
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      $event.preventDefault()
+                                                      return _vm.signin($event)
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                            SIGN IN\n                                        "
+                                                  )
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-col",
+                                        {
+                                          staticClass:
+                                            "col-12 col-md-4 col-lg-4 teal accent-3"
+                                        },
+                                        [
+                                          _c(
+                                            "v-card-text",
+                                            { staticClass: "white-text mt-12" },
+                                            [
+                                              _c(
+                                                "h1",
+                                                {
+                                                  staticClass:
+                                                    "text-center display-2"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                            Hello, Friends!\n                                        "
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "h5",
+                                                { staticClass: "text-center" },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                            Enter personal information and start contacting us!\n                                        "
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "text-center" },
+                                            [
+                                              _c(
+                                                "v-btn",
+                                                {
+                                                  attrs: {
+                                                    rounded: "",
+                                                    outlined: "",
+                                                    dark: ""
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      _vm.step++
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                            SIGN UP\n                                        "
+                                                  )
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-window-item",
+                                { attrs: { value: 2 } },
+                                [
+                                  _c(
+                                    "v-row",
+                                    { staticClass: "fill-height" },
+                                    [
+                                      _c(
+                                        "v-col",
+                                        {
+                                          staticClass:
+                                            "col-12 col-md-4 col-lg-4 teal accent-3"
+                                        },
+                                        [
+                                          _c(
+                                            "v-card-text",
+                                            { staticClass: "mt-12" },
+                                            [
+                                              _c(
+                                                "h1",
+                                                {
+                                                  staticClass:
+                                                    "text-center display-1"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                            Welcome Back!\n                                        "
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "h5",
+                                                { staticClass: "text-center" },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                            To keep connected with us. Please login with your personal information!\n                                        "
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "text-center" },
+                                            [
+                                              _c(
+                                                "v-btn",
+                                                {
+                                                  attrs: {
+                                                    rounded: "",
+                                                    outlined: "",
+                                                    dark: ""
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      _vm.step--
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                            SIGN IN\n                                        "
+                                                  )
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-col",
+                                        {
+                                          staticClass:
+                                            "col-12 col-md-8 col-lg-8"
+                                        },
+                                        [
+                                          _c(
+                                            "v-card-text",
+                                            { staticClass: "mt-12" },
+                                            [
+                                              _c(
+                                                "h1",
+                                                {
+                                                  staticClass:
+                                                    "text-center display-2 teal--text text--accent-3 mb-10"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                            Create Account\n                                        "
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "text-center mt-4"
+                                                },
+                                                [
+                                                  _c(
+                                                    "v-btn",
+                                                    {
+                                                      staticClass: "mx-2",
+                                                      attrs: {
+                                                        fab: "",
+                                                        color: "black",
+                                                        outlined: ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v(
+                                                          "fab fa-facebook"
+                                                        )
+                                                      ])
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-btn",
+                                                    {
+                                                      staticClass: "mx-2",
+                                                      attrs: {
+                                                        fab: "",
+                                                        color: "black",
+                                                        outlined: ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v(
+                                                          "fab fa-google-plus"
+                                                        )
+                                                      ])
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-btn",
+                                                    {
+                                                      staticClass: "mx-2",
+                                                      attrs: {
+                                                        fab: "",
+                                                        color: "black",
+                                                        outlined: ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v(
+                                                          "fab fa-linkedin"
+                                                        )
+                                                      ])
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "h4",
+                                                {
+                                                  staticClass:
+                                                    "text-center mlt-4"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                            Enter your email for registration\n                                        "
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-form",
+                                                [
+                                                  _c("v-text-field", {
+                                                    attrs: {
+                                                      id: "registerName",
+                                                      label: "Name",
+                                                      name: "Name",
+                                                      "prepend-icon":
+                                                        "mdi-account",
+                                                      type: "text",
+                                                      color: "teal accent-3",
+                                                      required: "",
+                                                      rules: [
+                                                        function(v) {
+                                                          return (
+                                                            !!v ||
+                                                            "field is required"
+                                                          )
+                                                        }
+                                                      ]
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.registerUser.name,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.registerUser,
+                                                          "name",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "registerUser.name"
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("v-text-field", {
+                                                    attrs: {
+                                                      id: "registerEmail",
+                                                      label: "Email",
+                                                      name: "Email",
+                                                      "prepend-icon":
+                                                        "mdi-email",
+                                                      type: "email",
+                                                      color: "teal accent-3",
+                                                      required: "",
+                                                      rules: [
+                                                        function(v) {
+                                                          return (
+                                                            !!v ||
+                                                            "field is required"
+                                                          )
+                                                        }
+                                                      ]
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.registerUser.email,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.registerUser,
+                                                          "email",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "registerUser.email"
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("small", {
+                                                    staticClass: "text-danger",
+                                                    attrs: {
+                                                      id: "idMarkForEmail"
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("v-text-field", {
+                                                    attrs: {
+                                                      id: "registerPassword",
+                                                      label: "Password",
+                                                      name: "Password",
+                                                      color: "teal accent-3",
+                                                      "prepend-icon":
+                                                        "mdi-lock",
+                                                      required: "",
+                                                      rules: [
+                                                        function(v) {
+                                                          return (
+                                                            !!v ||
+                                                            "field is required"
+                                                          )
+                                                        }
+                                                      ],
+                                                      "append-icon": _vm.eyeShow1
+                                                        ? "mdi-eye"
+                                                        : "mdi-eye-off",
+                                                      type: _vm.eyeShow1
+                                                        ? "password"
+                                                        : "text"
+                                                    },
+                                                    on: {
+                                                      "click:append": function() {
+                                                        return (_vm.eyeShow1 = !_vm.eyeShow1)
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.registerUser
+                                                          .password,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.registerUser,
+                                                          "password",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "registerUser.password"
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("small", {
+                                                    staticClass: "text-danger",
+                                                    attrs: {
+                                                      id: "idMarkForPassword"
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("v-text-field", {
+                                                    attrs: {
+                                                      id:
+                                                        "registerConfirmPassword",
+                                                      label: "Confirm",
+                                                      name: "Confirm",
+                                                      color: "teal accent-3",
+                                                      "prepend-icon":
+                                                        "mdi-account-check",
+                                                      required: "",
+                                                      "append-icon": _vm.eyeShow2
+                                                        ? "mdi-eye"
+                                                        : "mdi-eye-off",
+                                                      type: _vm.eyeShow2
+                                                        ? "password"
+                                                        : "text",
+                                                      rules: [
+                                                        _vm.passwordConfirmationRule
+                                                      ]
+                                                    },
+                                                    on: {
+                                                      "click:append": function() {
+                                                        return (_vm.eyeShow2 = !_vm.eyeShow2)
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.registerUser
+                                                          .confirmPassword,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.registerUser,
+                                                          "confirmPassword",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "registerUser.confirmPassword"
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("small", {
+                                                    staticClass: "text-danger",
+                                                    attrs: {
+                                                      id:
+                                                        "idMarkForConfirmPassword"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "text-center mt-n5"
+                                            },
+                                            [
+                                              _c(
+                                                "v-btn",
+                                                {
+                                                  attrs: {
+                                                    rounded: "",
+                                                    color: "teal accent-3",
+                                                    dark: ""
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                            SIGN UP\n                                        "
+                                                  )
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -99263,6 +100457,93 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/Welcome.vue":
+/*!**********************************!*\
+  !*** ./resources/js/Welcome.vue ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Welcome_vue_vue_type_template_id_3bea4f98_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Welcome.vue?vue&type=template&id=3bea4f98&scoped=true& */ "./resources/js/Welcome.vue?vue&type=template&id=3bea4f98&scoped=true&");
+/* harmony import */ var _Welcome_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Welcome.vue?vue&type=script&lang=js& */ "./resources/js/Welcome.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Welcome_vue_vue_type_style_index_0_id_3bea4f98_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Welcome.vue?vue&type=style&index=0&id=3bea4f98&scoped=true&lang=css& */ "./resources/js/Welcome.vue?vue&type=style&index=0&id=3bea4f98&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Welcome_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Welcome_vue_vue_type_template_id_3bea4f98_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Welcome_vue_vue_type_template_id_3bea4f98_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "3bea4f98",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Welcome.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Welcome.vue?vue&type=script&lang=js&":
+/*!***********************************************************!*\
+  !*** ./resources/js/Welcome.vue?vue&type=script&lang=js& ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Welcome_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/babel-loader/lib??ref--4-0!../../node_modules/vue-loader/lib??vue-loader-options!./Welcome.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Welcome.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Welcome_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Welcome.vue?vue&type=style&index=0&id=3bea4f98&scoped=true&lang=css&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/Welcome.vue?vue&type=style&index=0&id=3bea4f98&scoped=true&lang=css& ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Welcome_vue_vue_type_style_index_0_id_3bea4f98_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/style-loader!../../node_modules/css-loader??ref--6-1!../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/postcss-loader/src??ref--6-2!../../node_modules/vue-loader/lib??vue-loader-options!./Welcome.vue?vue&type=style&index=0&id=3bea4f98&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Welcome.vue?vue&type=style&index=0&id=3bea4f98&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Welcome_vue_vue_type_style_index_0_id_3bea4f98_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Welcome_vue_vue_type_style_index_0_id_3bea4f98_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Welcome_vue_vue_type_style_index_0_id_3bea4f98_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Welcome_vue_vue_type_style_index_0_id_3bea4f98_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Welcome_vue_vue_type_style_index_0_id_3bea4f98_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/Welcome.vue?vue&type=template&id=3bea4f98&scoped=true&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/Welcome.vue?vue&type=template&id=3bea4f98&scoped=true& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Welcome_vue_vue_type_template_id_3bea4f98_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../node_modules/vue-loader/lib??vue-loader-options!./Welcome.vue?vue&type=template&id=3bea4f98&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Welcome.vue?vue&type=template&id=3bea4f98&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Welcome_vue_vue_type_template_id_3bea4f98_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Welcome_vue_vue_type_template_id_3bea4f98_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -99281,6 +100562,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _routers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./routers */ "./resources/js/routers.js");
 /* harmony import */ var _shared_components_ValidationErrors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shared/components/ValidationErrors */ "./resources/js/shared/components/ValidationErrors.vue");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
+/* harmony import */ var _Welcome__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Welcome */ "./resources/js/Welcome.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -99293,6 +100575,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
  * building robust, powerful web applications using Vue and Laravel.
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //===
+//import '@mdi/font/css/materialdesignicons.css'
+
 
 
 
@@ -99332,12 +100616,17 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store(_store__WEBPA
  */
 
 var app = new Vue({
-  vuetify: new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a(),
+  vuetify: new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a({
+    icons: {
+      iconfont: 'mdi' || false || false
+    }
+  }),
   el: '#app',
   router: _routers__WEBPACK_IMPORTED_MODULE_4__["default"],
   store: store,
-  components: {//local registration
-    //'index': Index,
+  components: {
+    //local registration
+    'welcome': _Welcome__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   beforeCreate: function beforeCreate() {
     var _this = this;
@@ -99619,6 +100908,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ValidationErrors_vue_vue_type_template_id_4356abde_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/shared/mixins/validationErrors.js":
+/*!********************************************************!*\
+  !*** ./resources/js/shared/mixins/validationErrors.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      errors: null
+    };
+  },
+  methods: {
+    errorFor: function errorFor(field) {
+      //console.log("mixins.js errorFor this.errors => ", this.errors);
+      //console.log("mixins.js errorFor field => ", field);
+      return null !== this.errors && this.errors[field] ? this.errors[field] : null;
+    }
+  }
+});
 
 /***/ }),
 
